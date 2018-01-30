@@ -1,0 +1,18 @@
+{
+  "name": "eggly",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@uirouter/angularjs": "^1.0.13",
+    "angular": "^1.6.8",
+    "bootstrap": "^3.3.7",
+    "lodash": "^4.17.4"
+  },
+  "devDependencies": {}
+}

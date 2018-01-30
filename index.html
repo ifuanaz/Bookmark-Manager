@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Eggly Bookmark</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+
+    <style>
+        [ng-cloak] {
+            display: none;
+        }
+        .nav > li > a.active {
+            background: #eee;
+        }
+    </style>
+</head>
+<body ng-cloak>
+
+    <div class="container">
+        <ui-view></ui-view>
+    </div>
+
+    <script src="node_modules/angular/angular.js" charset="utf-8"></script>
+    <script src="node_modules/@uirouter/angularjs/release/angular-ui-router.js" charset="utf-8"></script>
+    <script src="node_modules/lodash/lodash.js" charset="utf-8"></script>
+
+
+    <!-- APP -->
+    <script src="app/app.js" charset="utf-8"></script>
+
+    <!-- Services -->
+    <script src="app/services/bookmarks.service.js" charset="utf-8"></script>
+    <script src="app/services/categories.service.js" charset="utf-8"></script>
+
+    <!-- Bookmarks -->
+    <script src="app/bookmarks/bookmarks.js" charset="utf-8"></script>
+    <script src="app/bookmarks/create/bookmark-create.js" charset="utf-8"></script>
+    <script src="app/bookmarks/edit/bookmark-edit.js" charset="utf-8"></script>
+
+    <!-- Categories -->
+    <script src="app/categories/categories.js" charset="utf-8"></script>
+
+
+</body>
+</html>
