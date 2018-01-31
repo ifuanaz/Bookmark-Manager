@@ -1,14 +1,14 @@
 <h3>Edit Form</h3>
-<form class="edit-form" ng-submit="$ctrl.editBookmark()">
+<form class="edit-form" ng-submit="ngDialogData.editBookmark()">
     <div class="form-group">
         <label>Bookmark Title</label>
-        <input type="text" class="form-control" ng-model="$ctrl.bookmark.title" placeholder="Enter title">
+        <input type="text" class="form-control" ng-model="ngDialogData.bookmark.title" placeholder="Enter title">
     </div>
 
     <div class="form-group">
         <label>Bookmark URL</label>
-        <input type="text" class="form-control" ng-model="$ctrl.bookmark.url" placeholder="Enter URL">
+        <input type="text" class="form-control" ng-model="ngDialogData.bookmark.url" placeholder="Enter URL">
     </div>
     <button type="submit" class="btn btn-info btn-lg">Save</button>
-    <button type="button" class="btn btn-default btn-lg pull-right" ng-click="$ctrl.cancel()">Cancel</button>
+    <button type="button" class="btn btn-default btn-lg pull-right" ng-click="ngDialogData.cancel()">Cancel</button>
 </form>

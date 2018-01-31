@@ -14,8 +14,8 @@
     };
 
     let edit = {
-        templateUrl: 'app/bookmarks/edit/bookmark-edit.template.html',
-        controller: function ($state, $stateParams, BookmarksService) {
+        // templateUrl: 'app/bookmarks/edit/bookmark-edit.template.html',
+        controller: function ($state, $stateParams, BookmarksService, ngDialog) {
             let vm = this;
 
             console.log($stateParams);
@@ -23,6 +23,7 @@
 
             function goBack() {
                 $state.go('app.categories', {category: $stateParams.category});
+                ngDialog.close();
             }
 
             vm.editBookmark = function () {
@@ -34,11 +35,23 @@
             vm.cancel = function () {
                 goBack();
             }
+
+            // Use popup ngDialog
+            ngDialog.open({
+                template: 'app/bookmarks/edit/bookmark-edit.template.html',
+                data: {
+                    bookmark: vm.bookmark,
+                    editBookmark: vm.editBookmark,
+                    cancel: vm.cancel
+                }
+            })
         }
     };
 
 
-    angular.module('bookmarks.edit', [])
+    angular.module('bookmarks.edit', [
+        'ngDialog'
+    ])
     .config(configure)
     .component('edit', edit)
     ;
