@@ -6,38 +6,40 @@
 
                 views: {
                     'bookmark-edit': {
-                        templateUrl: 'app/bookmarks/edit/bookmark-edit.template.html',
-                        controller: 'EditCtrl as $ctrl'
+                        component: 'edit'
                     }
                 }
             })
         ;
     };
 
-    function EditCtrl ($state, $stateParams, BookmarksService) {
-        let vm = this;
+    let edit = {
+        templateUrl: 'app/bookmarks/edit/bookmark-edit.template.html',
+        controller: function ($state, $stateParams, BookmarksService) {
+            let vm = this;
 
-        vm.bookmark = BookmarksService.getBookmarkById($stateParams.bookmarkId);
+            vm.bookmark = BookmarksService.getBookmarkById($stateParams.bookmarkId);
 
-        function goBack() {
-            $state.go('app.home');
-        }
+            function goBack() {
+                $state.go('app.home');
+            }
 
-        vm.editBookmark = function () {
-            let bookmark = angular.copy(vm.bookmark);
-            BookmarksService.editBookmark(bookmark);
-            goBack();
-        }
+            vm.editBookmark = function () {
+                let bookmark = angular.copy(vm.bookmark);
+                BookmarksService.editBookmark(bookmark);
+                goBack();
+            }
 
-        vm.cancel = function () {
-            goBack();
+            vm.cancel = function () {
+                goBack();
+            }
         }
     };
 
 
     angular.module('bookmarks.edit', [])
     .config(configure)
-    .controller('EditCtrl', EditCtrl)
+    .component('edit', edit)
     ;
 
 }())

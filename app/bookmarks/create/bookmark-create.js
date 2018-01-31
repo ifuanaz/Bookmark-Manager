@@ -5,42 +5,43 @@
                 url: '/create/',
                 views: {
                     'bookmark-create': {
-                        templateUrl: 'app/bookmarks/create/bookmark-create.template.html',
-                        controller: 'BookmarkCtrl as $ctrl'
-                        // component: 'bookmark-create'
+                        component: 'create'
                     }
                 }
             })
         ;
     };
 
-    function BookmarkCtrl ($state, $stateParams, BookmarksService) {
-        let vm = this;
+    let create = {
+        templateUrl: 'app/bookmarks/create/bookmark-create.template.html',
+        controller: function ($state, $stateParams, BookmarksService) {
+            let vm = this;
 
-        function goBack () {
-            $state.go('app.categories', {
-                category: $stateParams.category
-            });
-        }
+            function goBack () {
+                $state.go('app.categories', {
+                    category: $stateParams.category
+                });
+            }
 
-        vm.createBookmark = function (bookmark) {
-            console.log(bookmark);
-            if(bookmark.title && bookmark.url) {
-                bookmark.category = $stateParams.category;
-                BookmarksService.createBookmark(bookmark);
+            vm.createBookmark = function (bookmark) {
+                console.log(bookmark);
+                if(bookmark.title && bookmark.url) {
+                    bookmark.category = $stateParams.category;
+                    BookmarksService.createBookmark(bookmark);
+                    goBack();
+                }
+            }
+
+            vm.cancel = function () {
                 goBack();
             }
-        }
-
-        vm.cancel = function () {
-            goBack();
         }
     };
 
 
     angular.module('bookmarks.create', [])
     .config(configure)
-    .controller('BookmarkCtrl', BookmarkCtrl)
+    .component('create', create);
     ;
 
 }())
