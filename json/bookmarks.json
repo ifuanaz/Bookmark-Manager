@@ -6,5 +6,33 @@
     {"id":5, "title": "Themeforest", "url": "https://themeforest.net/", "category": "Design" },
     {"id":6, "title": "Robb Wolf", "url": "https://robbwolf.com/", "category": "Exercise" },
     {"id":7, "title": "Wimp", "url": "https://wimp.com/", "category": "Humor" },
-    {"id":8, "title": "Dump", "url": "https://dump.com/", "category": "Humor" }
+    {"id":8, "title": "Dump", "url": "https://dump.com/", "category": "Humor" },
+
+    {"id":10, "title": "AngularJS", "url": "http://angularjs.org", "category": "Development" },
+    {"id":11, "title": "Egghead.io", "url": "http://egghead.io", "category": "Development" },
+    {"id":13, "title": "Laracasts", "url": "https://laracasts.com/", "category": "Development" },
+    {"id":14, "title": "Muzli", "url": "https://muz.li/", "category": "Design" },
+    {"id":15, "title": "Themeforest", "url": "https://themeforest.net/", "category": "Design" },
+    {"id":16, "title": "Robb Wolf", "url": "https://robbwolf.com/", "category": "Exercise" },
+    {"id":17, "title": "Wimp", "url": "https://wimp.com/", "category": "Humor" },
+    {"id":18, "title": "Dump", "url": "https://dump.com/", "category": "Humor" },
+
+    {"id":20, "title": "AngularJS", "url": "http://angularjs.org", "category": "Development" },
+    {"id":21, "title": "Egghead.io", "url": "http://egghead.io", "category": "Development" },
+    {"id":23, "title": "Laracasts", "url": "https://laracasts.com/", "category": "Development" },
+    {"id":24, "title": "Muzli", "url": "https://muz.li/", "category": "Design" },
+    {"id":25, "title": "Themeforest", "url": "https://themeforest.net/", "category": "Design" },
+    {"id":26, "title": "Robb Wolf", "url": "https://robbwolf.com/", "category": "Exercise" },
+    {"id":27, "title": "Wimp", "url": "https://wimp.com/", "category": "Humor" },
+    {"id":28, "title": "Dump", "url": "https://dump.com/", "category": "Humor" },
+
+    {"id":30, "title": "AngularJS", "url": "http://angularjs.org", "category": "Development" },
+    {"id":31, "title": "Egghead.io", "url": "http://egghead.io", "category": "Development" },
+    {"id":33, "title": "Laracasts", "url": "https://laracasts.com/", "category": "Development" },
+    {"id":34, "title": "Muzli", "url": "https://muz.li/", "category": "Design" },
+    {"id":35, "title": "Themeforest", "url": "https://themeforest.net/", "category": "Design" },
+    {"id":36, "title": "Robb Wolf", "url": "https://robbwolf.com/", "category": "Exercise" },
+    {"id":37, "title": "Wimp", "url": "https://wimp.com/", "category": "Humor" },
+    {"id":38, "title": "Dump", "url": "https://dump.com/", "category": "Humor" }
+
 ]

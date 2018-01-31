@@ -1,7 +1,7 @@
 (function(){
     function configure ($stateProvider) {
         $stateProvider
-            .state('app.home.edit', {
+            .state('app.categories.edit', {
                 url: 'edit/:bookmarkId',
 
                 views: {
@@ -18,10 +18,11 @@
         controller: function ($state, $stateParams, BookmarksService) {
             let vm = this;
 
+            console.log($stateParams);
             vm.bookmark = BookmarksService.getBookmarkById($stateParams.bookmarkId);
 
             function goBack() {
-                $state.go('app.home');
+                $state.go('app.categories', {category: $stateParams.category});
             }
 
             vm.editBookmark = function () {

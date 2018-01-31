@@ -2,7 +2,9 @@
 <h3>{{ $ctrl.currentCategoryName }}</h3>
 <div ng-repeat="bookmark in $ctrl.bookmarks | filter: {category: $ctrl.currentCategoryName}">
     <button type="button" class="close" ng-click="$ctrl.deleteBookmark(bookmark)">&times;</button>
-    <button ui-sref="app.home.edit({bookmarkId: bookmark.id})" type="button" class="btn btn-link">
+    <button
+    ui-sref="app.categories.edit({category: ($ctrl.currentCategoryName) ? $ctrl.currentCategoryName : '', bookmarkId: bookmark.id})"
+    type="button" class="btn btn-link">
         <span class="glyphicon glyphicon-pencil"></span>
     </button>
     <a href="{{ bookmark.url }}" target="_blank">
