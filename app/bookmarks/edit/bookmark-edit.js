@@ -43,6 +43,9 @@
                     bookmark: vm.bookmark,
                     editBookmark: vm.editBookmark,
                     cancel: vm.cancel
+                },
+                preCloseCallback: function () {
+                    $state.go('app.categories', {category: $stateParams.category});
                 }
             })
         }

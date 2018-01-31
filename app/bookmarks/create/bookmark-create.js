@@ -18,9 +18,7 @@
             let vm = this;
 
             function goBack () {
-                $state.go('app.categories', {
-                    category: $stateParams.category
-                });
+                $state.go('app.categories', {category: $stateParams.category});
                 ngDialog.close();
             }
 
@@ -42,6 +40,9 @@
                 data: {
                     createBookmark: vm.createBookmark,
                     cancel: vm.cancel
+                },
+                preCloseCallback: function () {
+                    $state.go('app.categories', {category: $stateParams.category});
                 }
             })
         }
