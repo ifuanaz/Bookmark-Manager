@@ -48,6 +48,7 @@
 
 
     angular.module('bookmarks', [
+        'ngDialog',
         'service.bookmarks',
         'service.categories',
         'bookmarks.create',

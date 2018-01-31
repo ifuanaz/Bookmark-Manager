@@ -49,9 +49,7 @@
     };
 
 
-    angular.module('bookmarks.edit', [
-        'ngDialog'
-    ])
+    angular.module('bookmarks.edit', [])
     .config(configure)
     .component('edit', edit)
     ;

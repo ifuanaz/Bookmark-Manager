@@ -1,5 +1,5 @@
 <h3>Create Form</h3>
-<form class="create-form" ng-submit="$ctrl.createBookmark(newBookmark)">
+<form class="create-form" ng-submit="ngDialogData.createBookmark(newBookmark)">
     <div class="form-group">
         <label>Bookmark Title</label>
         <input type="text" class="form-control" ng-model="newBookmark.title" placeholder="Enter title">
@@ -10,5 +10,5 @@
         <input type="text" class="form-control" ng-model="newBookmark.url" placeholder="Enter URL">
     </div>
     <button type="submit" class="btn btn-info btn-lg">Create</button>
-    <button type="button" class="btn btn-default btn-lg pull-right" ng-click="$ctrl.cancel()">Cancel</button>
+    <button type="button" class="btn btn-default btn-lg pull-right" ng-click="ngDialogData.cancel()">Cancel</button>
 </form>

@@ -13,18 +13,18 @@
     };
 
     let create = {
-        templateUrl: 'app/bookmarks/create/bookmark-create.template.html',
-        controller: function ($state, $stateParams, BookmarksService) {
+        // templateUrl: 'app/bookmarks/create/bookmark-create.template.html',
+        controller: function ($state, $stateParams, BookmarksService, ngDialog) {
             let vm = this;
 
             function goBack () {
                 $state.go('app.categories', {
                     category: $stateParams.category
                 });
+                ngDialog.close();
             }
 
             vm.createBookmark = function (bookmark) {
-                console.log(bookmark);
                 if(bookmark.title && bookmark.url) {
                     bookmark.category = $stateParams.category;
                     BookmarksService.createBookmark(bookmark);
@@ -35,6 +35,15 @@
             vm.cancel = function () {
                 goBack();
             }
+
+            // ngDialog
+            ngDialog.open({
+                template: 'app/bookmarks/create/bookmark-create.template.html',
+                data: {
+                    createBookmark: vm.createBookmark,
+                    cancel: vm.cancel
+                }
+            })
         }
     };
 
