@@ -18,8 +18,8 @@
         controller: function ($state, $stateParams, BookmarksService, ngDialog) {
             let vm = this;
 
-            console.log($stateParams);
-            vm.bookmark = BookmarksService.getBookmarkById($stateParams.bookmarkId);
+            let currentBookmark = BookmarksService.getBookmarkById($stateParams.bookmarkId);
+            vm.bookmark = angular.copy(currentBookmark);
 
             function goBack() {
                 $state.go('app.categories', {category: $stateParams.category});
@@ -27,7 +27,7 @@
             }
 
             vm.editBookmark = function () {
-                let bookmark = angular.copy(vm.bookmark);
+                let bookmark = vm.bookmark;
                 BookmarksService.editBookmark(bookmark);
                 goBack();
             }
