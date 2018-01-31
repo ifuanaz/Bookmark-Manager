@@ -1,6 +1,9 @@
-<h1>Bookmarks</h1>
+<!-- <h1>Bookmarks</h1> -->
 <h3>{{ $ctrl.currentCategoryName }}</h3>
-<div ng-repeat="bookmark in $ctrl.bookmarks | filter: {category: $ctrl.currentCategoryName}">
+<div class="form-group">
+    <input type="text" class="form-control" ng-model="search" placeholder="Search...">
+</div>
+<div ng-repeat="bookmark in $ctrl.bookmarks | filter: {category: $ctrl.currentCategoryName, title: search}">
     <button type="button" class="close" ng-click="$ctrl.deleteBookmark(bookmark)">&times;</button>
     <button
     ui-sref="app.categories.edit({category: ($ctrl.currentCategoryName) ? $ctrl.currentCategoryName : '', bookmarkId: bookmark.id})"
