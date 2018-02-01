@@ -1,9 +1,11 @@
-<h2>
-    <a ui-sref="app.home">Categories</a>
-</h2>
-<ul class="nav nav-sidebar">
+<ul class="categories">
+    <li>
+        <a class="categories__link" ui-sref="app.home" ui-sref-active="active">
+            Categories
+        </a>
+    </li>
     <li ng-repeat="category in $ctrl.categories">
-        <a ui-sref="app.categories({category: category.name})" ui-sref-active="active">
+        <a class="categories__link" ui-sref="app.categories({category: category.name})" ui-sref-active="active">
             {{ category.name }}
         </a>
     </li>

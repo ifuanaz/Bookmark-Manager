@@ -1,26 +1,29 @@
-<!-- <h1>Bookmarks</h1> -->
-<h3>{{ $ctrl.currentCategoryName }}</h3>
-<div class="form-group">
-    <input type="text" class="form-control" ng-model="search" placeholder="Search...">
-</div>
-<div ng-repeat="bookmark in $ctrl.bookmarks | filter: {category: $ctrl.currentCategoryName, title: search}">
-    <button type="button" class="close" ng-click="$ctrl.deleteBookmark(bookmark)">&times;</button>
-    <button
-    ui-sref="app.categories.edit({category: ($ctrl.currentCategoryName) ? $ctrl.currentCategoryName : '', bookmarkId: bookmark.id})"
-    type="button" class="btn btn-link">
-        <span class="glyphicon glyphicon-pencil"></span>
-    </button>
-    <a href="{{ bookmark.url }}" target="_blank">
-        {{ bookmark.title }}
-    </a>
-</div>
-<hr>
-
-<div ui-view="bookmark-create" ng-if="$ctrl.currentCategoryName">
-    <button ui-sref="app.categories.create" type="button" class="btn btn-link">
-        <span class="glyphicon glyphicon-plus"></span>
-        Create Bookmark
+<div class="bookmark-head">
+    <div class="search-block">
+        <i class="glyphicon glyphicon-search search-block__icon-search"></i>
+        <input type="text" id="search" class="form-control search-block__input" ng-model="search">
+        <label for="search" class="search-block__label">Search bookmarks</label>
+    </div>
+    <button ng-if="$ctrl.currentCategoryName" ui-sref="app.categories.create" type="button" class="btn-create-bookmark" title="Create bookmark">
+        <i class="glyphicon glyphicon-plus"></i>
     </button>
 </div>
 
+<div class="bookmarks">
+    <div class="bookmarks__item" ng-repeat="bookmark in $ctrl.bookmarks | filter: {category: $ctrl.currentCategoryName, title: search}">
+        <a class="bookmarks__link" href="{{ bookmark.url }}" target="_blank">
+            {{ bookmark.title }}
+        </a>
+        <button
+        ui-sref="app.categories.edit({category: ($ctrl.currentCategoryName) ? $ctrl.currentCategoryName : '', bookmarkId: bookmark.id})"
+        type="button" class="bookmarks__btn">
+            <i class="glyphicon glyphicon-pencil"></i>
+        </button>
+        <button type="button" class="bookmarks__btn" ng-click="$ctrl.deleteBookmark(bookmark)">
+            <i class="glyphicon glyphicon-remove"></i>
+        </button>
+    </div>
+</div>
+
+<div ui-view="bookmark-create"></div>
 <div ui-view="bookmark-edit"></div>

@@ -1,0 +1,18 @@
+a {
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+
+    &:active,
+    &:hover {
+        outline: none;
+    }
+}
