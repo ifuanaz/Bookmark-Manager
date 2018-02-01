@@ -18,8 +18,7 @@
 
     angular.module('app', [
         'ui.router',
-        'categories',
-        'bookmarks'
+        'bookmark.states'
     ])
     .config(configure)
     ;

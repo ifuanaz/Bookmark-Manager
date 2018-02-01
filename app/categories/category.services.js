@@ -1,4 +1,5 @@
 (function() {
+
     function CategoriesService ($http, $q) {
         const URLS = {
             FETCH: 'json/categories.json'
@@ -17,8 +18,8 @@
     };
 
 
-    angular.module('service.categories', [])
+    angular.module('category.services', [])
     .service('CategoriesService', CategoriesService)
     ;
 
-}())
+}());

@@ -1,4 +1,5 @@
 (function(){
+
     function BookmarksService ($http, $q) {
         const URLS = {
             FETCH: 'json/bookmarks.json'
@@ -60,8 +61,8 @@
     };
 
 
-    angular.module('service.bookmarks', [])
+    angular.module('bookmark.services', [])
     .service('BookmarksService', BookmarksService)
     ;
 
-}())
+}());

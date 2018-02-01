@@ -1,6 +1,6 @@
 (function(){
-    let categories = {
-        templateUrl: 'app/categories/categories.template.html',
+    let categoryList = {
+        templateUrl: 'app/categories/components/category-list.html',
         controller: function (CategoriesService) {
             let vm = this;
 
@@ -10,10 +10,10 @@
     };
 
 
-    angular.module('categories', [
-        'service.categories'
+    angular.module('category.components', [
+        'category.services'
     ])
-    .component('categories', categories)
+    .component('categoryList', categoryList)
     ;
 
 }())
