@@ -15,28 +15,30 @@
 
         return service;
 
-        function extract(result) {
+        function extract (result) {
             return result.data;
         }
 
-        function cacheBookmarks(result) {
+        function cacheBookmarks (result) {
             bookmarks = extract(result);
             return bookmarks;
         }
 
-        function getBookmarks() {
-            let defered = $q.defer();
+        function getBookmarks () {
+            let deferred = $q.defer();
 
             if(bookmarks) {
-                defered.resolve(bookmarks);
+                // console.log('get cached bookmarks data');
+                deferred.resolve(bookmarks);
             }
             else {
                 $http.get(URLS.FETCH).then(result => {
-                    defered.resolve(cacheBookmarks(result))
+                    // console.log('get new bookmarks data');
+                    deferred.resolve(cacheBookmarks(result))
                 });
             }
 
-            return defered.promise;
+            return deferred.promise;
         }
 
         function getBookmarkById (id) {

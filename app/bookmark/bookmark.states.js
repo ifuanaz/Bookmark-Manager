@@ -2,20 +2,8 @@
 
     function configure($stateProvider) {
         $stateProvider
-            // home state
-            .state('app.home', {
-                url: '',
-                views: {
-                    'bookmarks': {
-                        component: 'bookmarkList'
-                    },
-                    'categories': {
-                        component: 'categoryList'
-                    }
-                }
-            })
-            // get curent categoty for bookmarks
-            .state('app.categories', {
+            // get current categoty for bookmarks
+            .state('app.bookmark', {
                 url: 'categories/:category',
                 views: {
                     'bookmarks': {
@@ -27,8 +15,8 @@
                 }
             })
             // Create bookmark
-            .state('app.categories.create', {
-                url: '/create/',
+            .state('app.bookmark.create', {
+                url: '/create',
                 views: {
                     'bookmark-create': {
                         component: 'bookmarkCreate'
@@ -36,8 +24,8 @@
                 }
             })
             // Edit bookmark
-            .state('app.categories.edit', {
-                url: 'edit/:bookmarkId',
+            .state('app.bookmark.edit', {
+                url: '/edit/:bookmarkId',
 
                 views: {
                     'bookmark-edit': {

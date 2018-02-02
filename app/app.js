@@ -10,6 +10,18 @@
                     }
                 }
             })
+            // home state
+            .state('app.home', {
+                url: '',
+                views: {
+                    'bookmarks': {
+                        component: 'bookmarkList'
+                    },
+                    'categories': {
+                        component: 'categoryList'
+                    }
+                }
+            })
         ;
 
         $urlRouterProvider.otherwise('/')

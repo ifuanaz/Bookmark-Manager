@@ -5,7 +5,7 @@
         </a>
     </li>
     <li ng-repeat="category in $ctrl.categories">
-        <a class="categories__link" ui-sref="app.categories({category: category.name})" ui-sref-active="active">
+        <a class="categories__link" ui-sref="app.bookmark({category: category.name})" ui-sref-active="active">
             {{ category.name }}
         </a>
     </li>

@@ -1,10 +1,11 @@
 (function(){
+
     let categoryList = {
-        templateUrl: 'app/categories/components/category-list.html',
+        templateUrl: 'app/category/components/category-list.html',
         controller: function (CategoriesService) {
             let vm = this;
 
-            CategoriesService.getCategories().then(result => vm.categories = result.data);
+            CategoriesService.getCategories().then(result => vm.categories = result);
 
         }
     };
@@ -16,4 +17,4 @@
     .component('categoryList', categoryList)
     ;
 
-}())
+}());
