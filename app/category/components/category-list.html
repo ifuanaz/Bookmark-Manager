@@ -1,12 +1,20 @@
 <ul class="categories">
-    <li>
-        <a class="categories__link" ui-sref="app.home" ui-sref-active="active">
+    <li class="categories__item">
+        <a class="categories__link" ui-sref="app.category" ui-sref-active="active">
             Categories
         </a>
+        <button ng-if="!$ctrl.currentCategoryName" type="button" class="categories__btn button-create" ui-sref="app.category.create">
+            <i class="glyphicon glyphicon-plus"></i>
+        </button>
     </li>
-    <li ng-repeat="category in $ctrl.categories">
+    <li class="categories__item" ng-repeat="category in $ctrl.categories">
         <a class="categories__link" ui-sref="app.bookmark({category: category.name})" ui-sref-active="active">
             {{ category.name }}
         </a>
+        <button ng-if="$ctrl.currentCategoryName" ng-click="$ctrl.deleteCategory(category)" type="button" class="categories__btn button-delete">
+            <i class="glyphicon glyphicon-remove"></i>
+        </button>
     </li>
 </ul>
+
+<div ui-view="category-create"></div>

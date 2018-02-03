@@ -30,6 +30,12 @@ body {
   list-style: none;
   margin-top: 84px;
   padding: 0; }
+  .categories__item {
+    position: relative; }
+  .categories__btn {
+    position: absolute;
+    right: 5px;
+    top: 11px; }
   .categories__link {
     display: block;
     padding: 10px 15px;
@@ -64,11 +70,13 @@ body {
     font-weight: normal;
     transition: all 0.2s; }
 
-.btn-create-bookmark {
+.button-create,
+.button-delete {
   color: #fff;
   padding: 0 10px;
   opacity: 1; }
-  .btn-create-bookmark:hover {
+  .button-create:hover,
+  .button-delete:hover {
     opacity: 0.8; }
 
 .bookmarks {

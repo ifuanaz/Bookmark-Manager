@@ -6,7 +6,9 @@
         };
 
         let service = {
-            getCategories: getCategories
+            getCategories: getCategories,
+            createCategory: createCategory,
+            deleteCategory: deleteCategory
         }, categories;
 
         return service;
@@ -36,6 +38,16 @@
 
             return deferred.promise;
         }
+
+        function createCategory (category) {
+            category.id = parseInt(_.uniqueId(1));
+            categories.push(category);
+        }
+
+        function deleteCategory (category) {
+            _.remove(categories, {id: category.id});
+        }
+
     };
 
 

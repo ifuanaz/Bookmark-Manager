@@ -1,0 +1,9 @@
+<h3>Create Category</h3>
+<form class="create-form" ng-submit="ngDialogData.createCategory(newCategory)">
+    <div class="form-group">
+        <label>Category Title</label>
+        <input type="text" class="form-control" ng-model="newCategory.name" placeholder="Enter name">
+    </div>
+    <button type="submit" class="btn btn-info btn-lg">Create</button>
+    <button type="button" class="btn btn-default btn-lg pull-right" ng-click="ngDialogData.cancel()">Cancel</button>
+</form>

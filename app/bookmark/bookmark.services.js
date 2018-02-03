@@ -10,6 +10,7 @@
             getBookmarkById: getBookmarkById,
             createBookmark: createBookmark,
             deleteBookmark: deleteBookmark,
+            deleteBookmarksByCategory: deleteBookmarksByCategory,
             editBookmark: editBookmark
         }, bookmarks;
 
@@ -53,6 +54,10 @@
 
         function deleteBookmark (bookmark) {
             _.remove(bookmarks, {id: bookmark.id});
+        }
+
+        function deleteBookmarksByCategory (category) {
+            _.remove(bookmarks, {category: category.name});
         }
 
         function editBookmark (bookmark) {

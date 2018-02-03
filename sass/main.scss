@@ -29,6 +29,16 @@ body {
     margin-top: 84px;
     padding: 0;
 
+    &__item {
+        position: relative;
+    }
+
+    &__btn {
+        position: absolute;
+        right: 5px;
+        top: 11px;
+    }
+
     &__link {
         display: block;
         padding: 10px 15px;
@@ -77,7 +87,8 @@ body {
     }
 }
 
-.btn-create-bookmark {
+.button-create,
+.button-delete {
     color: #fff;
     padding: 0 10px;
     opacity: 1;

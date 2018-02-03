@@ -11,7 +11,7 @@
                 }
             })
             // home state
-            .state('app.home', {
+            .state('app.category', {
                 url: '',
                 views: {
                     'bookmarks': {
@@ -30,6 +30,7 @@
 
     angular.module('app', [
         'ui.router',
+        'category.states',
         'bookmark.states'
     ])
     .config(configure)
