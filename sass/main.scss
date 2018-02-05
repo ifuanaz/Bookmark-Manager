@@ -51,6 +51,14 @@ body {
         }
     }
 }
+// Delete
+
+.delete-category {
+    &__title {
+        font-size: 18px;
+        font-weight: bold;
+    }
+}
 
 .bookmark-head {
     display: flex;
@@ -133,6 +141,18 @@ body {
         &:hover {
             color: $c-blue;
         }
+    }
+}
+
+.button-confirm {
+    background-color: $c-light-blue;
+    border-color: $c-light-blue;
+    color: #fff !important;
+    opacity: 1;
+    outline: none !important;
+
+    &:hover {
+        opacity: 0.8;
     }
 }
 

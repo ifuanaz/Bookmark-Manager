@@ -2,7 +2,7 @@
 
     let categoryList = {
         templateUrl: 'app/category/components/category-list.html',
-        controller: function ($stateParams, $state, CategoriesService, BookmarksService) {
+        controller: function ($stateParams, $state, ngDialog, CategoriesService, BookmarksService) {
             let vm = this;
 
             vm.currentCategoryName = $stateParams.category;
@@ -10,11 +10,16 @@
             CategoriesService.getCategories().then(result => vm.categories = result);
 
             vm.deleteCategory = function (category) {
-                CategoriesService.deleteCategory(category);
-                BookmarksService.deleteBookmarksByCategory(category);
-                $state.go('app.category');
+                ngDialog.openConfirm({
+                    template: 'app/category/components/category-delete.html'
+                })
+                .then(() => {
+                    CategoriesService.deleteCategory(category);
+                    BookmarksService.deleteBookmarksByCategory(category);
+                    $state.go('app.category');
+                })
+                .catch(err => {});
             }
-
         }
     };
 

@@ -8,31 +8,12 @@
     {"id":7, "title": "Wimp", "url": "https://wimp.com/", "category": "Humor" },
     {"id":8, "title": "Dump", "url": "https://dump.com/", "category": "Humor" },
 
-    {"id":10, "title": "AngularJS", "url": "http://angularjs.org", "category": "Development" },
-    {"id":11, "title": "Egghead.io", "url": "http://egghead.io", "category": "Development" },
-    {"id":13, "title": "Laracasts", "url": "https://laracasts.com/", "category": "Development" },
-    {"id":14, "title": "Muzli", "url": "https://muz.li/", "category": "Design" },
-    {"id":15, "title": "Themeforest", "url": "https://themeforest.net/", "category": "Design" },
-    {"id":16, "title": "Robb Wolf", "url": "https://robbwolf.com/", "category": "Exercise" },
-    {"id":17, "title": "Wimp", "url": "https://wimp.com/", "category": "Humor" },
-    {"id":18, "title": "Dump", "url": "https://dump.com/", "category": "Humor" },
-
-    {"id":20, "title": "AngularJS", "url": "http://angularjs.org", "category": "Development" },
-    {"id":21, "title": "Egghead.io", "url": "http://egghead.io", "category": "Development" },
-    {"id":23, "title": "Laracasts", "url": "https://laracasts.com/", "category": "Development" },
-    {"id":24, "title": "Muzli", "url": "https://muz.li/", "category": "Design" },
-    {"id":25, "title": "Themeforest", "url": "https://themeforest.net/", "category": "Design" },
-    {"id":26, "title": "Robb Wolf", "url": "https://robbwolf.com/", "category": "Exercise" },
-    {"id":27, "title": "Wimp", "url": "https://wimp.com/", "category": "Humor" },
-    {"id":28, "title": "Dump", "url": "https://dump.com/", "category": "Humor" },
-
-    {"id":30, "title": "AngularJS", "url": "http://angularjs.org", "category": "Development" },
-    {"id":31, "title": "Egghead.io", "url": "http://egghead.io", "category": "Development" },
-    {"id":33, "title": "Laracasts", "url": "https://laracasts.com/", "category": "Development" },
-    {"id":34, "title": "Muzli", "url": "https://muz.li/", "category": "Design" },
-    {"id":35, "title": "Themeforest", "url": "https://themeforest.net/", "category": "Design" },
-    {"id":36, "title": "Robb Wolf", "url": "https://robbwolf.com/", "category": "Exercise" },
-    {"id":37, "title": "Wimp", "url": "https://wimp.com/", "category": "Humor" },
-    {"id":38, "title": "Dump", "url": "https://dump.com/", "category": "Humor" }
-
+    {"id":9, "title": "Stack Overflow", "url": "https://stackoverflow.com/", "category": "Development" },
+    {"id":10, "title": "Angular 5", "url": "http://angular.io", "category": "Development" },
+    {"id":11, "title": "React", "url": "https://reactjs.org/", "category": "Development" },
+    {"id":13, "title": "Skeleton CSS", "url": "http://getskeleton.com/", "category": "Development" },
+    {"id":14, "title": "Photoshop", "url": "https://www.photoshop.com/", "category": "Design" },
+    {"id":15, "title": "Canva Templates", "url": "https://www.canva.com/templates/", "category": "Design" },
+    {"id":16, "title": "Puzzle English", "url": "https://puzzle-english.com/", "category": "Exercise" },
+    {"id":17, "title": "Goodreads", "url": "https://www.goodreads.com/list/tag/humor", "category": "Humor" }
 ]

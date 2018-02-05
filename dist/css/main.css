@@ -45,6 +45,10 @@ body {
       background: #3367d6;
       color: #fff; }
 
+.delete-category__title {
+  font-size: 18px;
+  font-weight: bold; }
+
 .bookmark-head {
   display: flex;
   justify-content: space-between;
@@ -103,6 +107,15 @@ body {
     display: flex; }
     .bookmarks__btn:hover {
       color: #3367d6; }
+
+.button-confirm {
+  background-color: #4e80e9;
+  border-color: #4e80e9;
+  color: #fff !important;
+  opacity: 1;
+  outline: none !important; }
+  .button-confirm:hover {
+    opacity: 0.8; }
 
 [ng-cloak] {
   display: none; }
