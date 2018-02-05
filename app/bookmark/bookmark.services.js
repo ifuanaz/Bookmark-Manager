@@ -48,7 +48,7 @@
         }
 
         function createBookmark (bookmark) {
-            bookmark.id = parseInt(_.uniqueId(1));
+            bookmark.id = parseInt(_.uniqueId(10));
             bookmarks.push(bookmark);
         }
 

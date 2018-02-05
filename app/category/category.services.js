@@ -40,7 +40,7 @@
         }
 
         function createCategory (category) {
-            category.id = parseInt(_.uniqueId(1));
+            category.id = parseInt(_.uniqueId(10));
             categories.push(category);
         }
 
