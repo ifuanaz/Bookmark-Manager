@@ -7,7 +7,7 @@
 
             vm.currentCategoryName = $stateParams.category;
 
-            CategoriesService.getCategories().then(result => vm.categories = result);
+            CategoriesService.getCategories().then(response => vm.categories = response);
 
             vm.deleteCategory = function (category) {
                 ngDialog.openConfirm({
@@ -25,29 +25,37 @@
 
 
     let categoryCreate = {
-        // templateUrl: 'app/category/components/category-create.html',
         controller: function (ngDialog, $state, CategoriesService) {
-            let vm = this;
-
             function goBack () {
                 ngDialog.close();
                 $state.go('app.category');
             }
 
-            vm.createCategory = function (category) {
-                CategoriesService.createCategory(category);
-                goBack();
-            }
-
-            vm.cancel = function () {
-                goBack();
-            }
-
             ngDialog.open({
                 template: 'app/category/components/category-create.html',
-                data: {
-                    createCategory: vm.createCategory,
-                    cancel: vm.cancel
+                controllerAs: 'ctrlDialog',
+                controller: function () {
+                    let vm = this;
+
+                    vm.createCategory = function (category) {
+                        if( !CategoriesService.isCurrentCategoryExist(category) ) {
+                            CategoriesService.createCategory(category);
+                            goBack();
+                        }
+                        else {
+                            ngDialog.openConfirm({
+                                template: '<br><p>This category was created!</p>',
+                                plain: true,
+                                height: 100
+                            })
+                            .catch(err => {})
+                        }
+                    }
+
+                    vm.cancel = function () {
+                        goBack();
+                    }
+
                 },
                 preCloseCallback: function () {
                     $state.go('app.category');

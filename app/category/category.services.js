@@ -8,7 +8,8 @@
         let service = {
             getCategories: getCategories,
             createCategory: createCategory,
-            deleteCategory: deleteCategory
+            deleteCategory: deleteCategory,
+            isCurrentCategoryExist: isCurrentCategoryExist
         }, categories;
 
         return service;
@@ -46,6 +47,10 @@
 
         function deleteCategory (category) {
             _.remove(categories, {id: category.id});
+        }
+
+        function isCurrentCategoryExist (category) {
+            return _.find(categories, {name: category.name});
         }
 
     };
