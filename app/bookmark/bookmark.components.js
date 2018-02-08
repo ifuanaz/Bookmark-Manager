@@ -10,8 +10,8 @@
             }
 
             BookmarksService.getBookmarks()
-                .then(result => {
-                    vm.bookmarks = result;
+                .then(response => {
+                    vm.bookmarks = response;
                 });
 
             vm.currentCategoryName = $stateParams.category;
@@ -21,33 +21,31 @@
 
 
     let bookmarkCreate = {
-        // templateUrl: 'app/bookmarks/create/bookmark-create.template.html',
         controller: function ($state, $stateParams, BookmarksService, ngDialog) {
-            let vm = this;
-
             function goBack () {
                 $state.go('app.bookmark', {category: $stateParams.category});
                 ngDialog.close();
             }
 
-            vm.createBookmark = function (bookmark) {
-                if(bookmark.title && bookmark.url) {
-                    bookmark.category = $stateParams.category;
-                    BookmarksService.createBookmark(bookmark);
-                    goBack();
-                }
-            }
-
-            vm.cancel = function () {
-                goBack();
-            }
-
             // ngDialog
             ngDialog.open({
                 template: 'app/bookmark/components/bookmark-create.html',
-                data: {
-                    createBookmark: vm.createBookmark,
-                    cancel: vm.cancel
+                controllerAs: 'ctrlDialog',
+                controller: function () {
+                    let vm = this;
+
+                    vm.createBookmark = function (bookmark) {
+                        if(bookmark.title && bookmark.url) {
+                            bookmark.category = $stateParams.category;
+                            BookmarksService.createBookmark(bookmark);
+                            goBack();
+                        }
+                    }
+
+                    vm.cancel = function () {
+                        goBack();
+                    }
+
                 },
                 preCloseCallback: function () {
                     $state.go('app.bookmark', {category: $stateParams.category});
@@ -58,35 +56,32 @@
 
 
     let bookmarkEdit = {
-        // templateUrl: 'app/bookmarks/edit/bookmark-edit.template.html',
         controller: function ($state, $stateParams, BookmarksService, ngDialog) {
-            let vm = this;
-
-            let currentBookmark = BookmarksService.getBookmarkById($stateParams.bookmarkId);
-            vm.bookmark = angular.copy(currentBookmark);
-
             function goBack() {
                 $state.go('app.bookmark', {category: $stateParams.category});
                 ngDialog.close();
             }
 
-            vm.editBookmark = function () {
-                let bookmark = vm.bookmark;
-                BookmarksService.editBookmark(bookmark);
-                goBack();
-            }
-
-            vm.cancel = function () {
-                goBack();
-            }
-
             // Use popup ngDialog
             ngDialog.open({
                 template: 'app/bookmark/components/bookmark-edit.html',
-                data: {
-                    bookmark: vm.bookmark,
-                    editBookmark: vm.editBookmark,
-                    cancel: vm.cancel
+                controllerAs: 'ctrlDialog',
+                controller: function () {
+                    let vm = this;
+
+                    let currentBookmark = BookmarksService.getBookmarkById($stateParams.bookmarkId);
+                    vm.bookmark = angular.copy(currentBookmark);
+
+                    vm.editBookmark = function () {
+                        let bookmark = vm.bookmark;
+                        BookmarksService.editBookmark(bookmark);
+                        goBack();
+                    }
+
+                    vm.cancel = function () {
+                        goBack();
+                    }
+
                 },
                 preCloseCallback: function () {
                     $state.go('app.bookmark', {category: $stateParams.category});

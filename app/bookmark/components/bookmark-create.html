@@ -1,14 +1,14 @@
 <h3>Create Bookmark</h3>
-<form class="create-form" ng-submit="ngDialogData.createBookmark(newBookmark)">
+<form class="create-form" ng-submit="ctrlDialog.createBookmark(newBookmark)">
     <div class="form-group">
         <label>Bookmark Title</label>
-        <input type="text" class="form-control" ng-model="newBookmark.title" placeholder="Enter title">
+        <input type="text" class="form-control" ng-model="newBookmark.title" placeholder="Enter title" required>
     </div>
 
     <div class="form-group">
         <label>Bookmark URL</label>
-        <input type="text" class="form-control" ng-model="newBookmark.url" placeholder="Enter URL">
+        <input type="text" class="form-control" ng-model="newBookmark.url" placeholder="Enter URL" required>
     </div>
     <button type="submit" class="btn btn-lg button-confirm">Create</button>
-    <button type="button" class="btn btn-default btn-lg pull-right" ng-click="ngDialogData.cancel()">Cancel</button>
+    <button type="button" class="btn btn-default btn-lg pull-right" ng-click="ctrlDialog.cancel()">Cancel</button>
 </form>
