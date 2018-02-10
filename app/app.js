@@ -34,6 +34,9 @@
         'bookmark.states'
     ])
     .config(configure)
+    .controller('mainController', function ($scope) {
+        this.text = 'We\'re watching for You :)'
+    })
     ;
 
 }())

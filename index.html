@@ -15,7 +15,9 @@
 
     <link rel="stylesheet" href="dist/css/main.css">
 </head>
-<body ng-cloak>
+<body ng-cloak ng-controller="mainController as main">
+
+    <p class="state">{{ main.text }}</p>
 
     <div class="container">
         <ui-view></ui-view>

@@ -67,6 +67,8 @@ body {
     margin: 0 10px; }
   .search-block__input:focus + label {
     opacity: 0; }
+  .search-block__input.ng-not-empty + label {
+    opacity: 0; }
   .search-block__label {
     position: absolute;
     left: 47px;
@@ -116,6 +118,21 @@ body {
   outline: none !important; }
   .button-confirm:hover {
     opacity: 0.8; }
+
+.state {
+  position: fixed;
+  z-index: 10001;
+  bottom: 10px;
+  left: 10px;
+  font-size: 14px;
+  background: #8585a8;
+  padding: 10px;
+  opacity: 0.9;
+  max-width: 200px;
+  color: #fff;
+  transition: all 0.3s ease-out; }
+  .state:hover {
+    left: 15px; }
 
 [ng-cloak] {
   display: none; }

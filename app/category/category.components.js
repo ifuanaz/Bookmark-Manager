@@ -1,6 +1,9 @@
 (function(){
 
     let categoryList = {
+        bindings: {
+            onChangeState: '&'
+        },
         templateUrl: 'app/category/components/category-list.html',
         controller: function ($stateParams, $state, ngDialog, CategoriesService, BookmarksService) {
             let vm = this;
@@ -9,23 +12,50 @@
 
             CategoriesService.getCategories().then(response => vm.categories = response);
 
+            vm.backToMainPage = function () {
+                vm.onChangeState({$event: {text: `We're watching for You :)`}})
+            }
+
+            vm.changeCategory = function (category) {
+                vm.onChangeState({$event: {text: `You selected new category ${category.name}.`}})
+            }
+
             vm.deleteCategory = function (category) {
+                vm.onChangeState({$event: {text: `You want to delete ${category.name} category?`}})
                 ngDialog.openConfirm({
                     template: 'app/category/components/category-delete.html'
                 })
                 .then(() => {
                     CategoriesService.deleteCategory(category);
                     BookmarksService.deleteBookmarksByCategory(category);
+                    vm.onChangeState({$event: {text: `You deleted ${category.name} category.`}})
                     $state.go('app.category');
                 })
-                .catch(err => {});
+                .catch(err => {
+                    vm.onChangeState({$event: {text: `You changed your mind.`}})
+                });
             }
         }
     };
 
 
     let categoryCreate = {
+        // bindings: {
+        //     onChangeState: '&'
+        // },
+        require: {
+            parent: '^categoryList' // use parent controller
+        },
         controller: function (ngDialog, $state, CategoriesService) {
+            let vm = this;
+
+            // Initialization - make use of the parent controllers function
+            vm.$onInit = function() {
+                vm.parent.onChangeState({$event: {text: 'You are creating a category'}})
+                // console.log(this.parent);
+            }
+
+
             function goBack () {
                 ngDialog.close();
                 $state.go('app.category');
@@ -35,12 +65,13 @@
                 template: 'app/category/components/category-create.html',
                 controllerAs: 'ctrlDialog',
                 controller: function () {
-                    let vm = this;
+                    let self = this;
 
-                    vm.createCategory = function (category) {
+                    self.createCategory = function (category) {
                         if( !CategoriesService.isCurrentCategoryExist(category) ) {
                             CategoriesService.createCategory(category);
                             goBack();
+                            vm.parent.onChangeState({$event: {text: 'A category was created!'}})
                         }
                         else {
                             ngDialog.openConfirm({
@@ -52,8 +83,9 @@
                         }
                     }
 
-                    vm.cancel = function () {
+                    self.cancel = function () {
                         goBack();
+                        vm.parent.onChangeState({$event: {text: 'Ohh you changed you mind :('}})
                     }
 
                 },

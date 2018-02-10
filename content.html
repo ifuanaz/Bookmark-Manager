@@ -1,4 +1,5 @@
 <div class="content">
-    <div class="content__categories" ui-view="categories"></div>
-    <div class="content__bookmarks" ui-view="bookmarks"></div>
+    <h1>{{ main.state }}</h1>
+    <div class="content__categories" ui-view="categories" on-change-state="main.text = $event.text"></div>
+    <div class="content__bookmarks" ui-view="bookmarks" on-change-state="main.text = $event.text"></div>
 </div>
