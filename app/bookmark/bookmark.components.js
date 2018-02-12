@@ -90,7 +90,7 @@
 
                     self.cancel = function () {
                         goBack();
-                        vm.parent.onChangeState({$event: {text: `Ohh you tapping 'cancel'`}})
+                        vm.parent.onChangeState({$event: {text: `We're watching for You :)`}})
                     }
                 },
                 preCloseCallback: function () {

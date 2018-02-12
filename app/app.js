@@ -32,7 +32,7 @@
     let appComponent = {
         templateUrl: 'content.html',
         controller: function () {
-            this.text = 'We\'re watching for You :)'
+            this.text = `We're watching for You :)`
         }
     }
 
