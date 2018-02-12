@@ -5,8 +5,13 @@
             onChangeState: '&'
         },
         templateUrl: 'app/bookmark/components/bookmark-list.html',
-        controller: function ($stateParams, BookmarksService) {
+        controller: function ($stateParams, BookmarksService, CategoriesService) {
             let vm = this;
+
+            CategoriesService.getCategories()
+                .then(response => {
+                    vm.categoriesExists = response.length
+                });
 
             vm.changeInputText = function (str) {
                 if(str === '') {
