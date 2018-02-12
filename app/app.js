@@ -6,7 +6,8 @@
                 url: '/',
                 views : {
                     '' : {
-                        templateUrl: 'content.html'
+                        component: 'appComponent'
+                        // templateUrl: 'content.html'
                     }
                 }
             })
@@ -28,15 +29,21 @@
     };
 
 
+    let appComponent = {
+        templateUrl: 'content.html',
+        controller: function () {
+            this.text = 'We\'re watching for You :)'
+        }
+    }
+
+
     angular.module('app', [
         'ui.router',
         'category.states',
         'bookmark.states'
     ])
     .config(configure)
-    .controller('mainController', function ($scope) {
-        this.text = 'We\'re watching for You :)'
-    })
+    .component('appComponent', appComponent)
     ;
 
 }())

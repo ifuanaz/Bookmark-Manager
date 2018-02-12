@@ -15,13 +15,9 @@
 
     <link rel="stylesheet" href="dist/css/main.css">
 </head>
-<body ng-cloak ng-controller="mainController as main">
+<body ng-cloak>
 
-    <p class="state">{{ main.text }}</p>
-
-    <div class="container">
-        <ui-view></ui-view>
-    </div>
+    <ui-view></ui-view>
 
     <script src="node_modules/angular/angular.js" charset="utf-8"></script>
     <script src="node_modules/@uirouter/angularjs/release/angular-ui-router.js" charset="utf-8"></script>

@@ -2,6 +2,26 @@
 
     function configure($stateProvider) {
         $stateProvider
+            .state('app.bookmarks', {
+                url: 'bookmarks',
+                views: {
+                    'bookmarks': {
+                        component: 'bookmarkList'
+                    },
+                    'categories': {
+                        component: 'categoryList'
+                    }
+                }
+            })
+            // multi create bookmarks
+            .state('app.bookmarks.multicreate', {
+                url: '/create',
+                views: {
+                    'bookmark-create': {
+                        component: 'bookmarskMultiCreate'
+                    }
+                }
+            })
             // get current categoty for bookmarks
             .state('app.bookmark', {
                 url: 'categories/:category',

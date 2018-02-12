@@ -8,6 +8,7 @@
         let service = {
             getBookmarks: getBookmarks,
             getBookmarkById: getBookmarkById,
+            createMultipleBookmarks: createMultipleBookmarks,
             createBookmark: createBookmark,
             deleteBookmark: deleteBookmark,
             deleteBookmarksByCategory: deleteBookmarksByCategory,
@@ -16,12 +17,9 @@
 
         return service;
 
-        function extract (result) {
-            return result.data;
-        }
-
-        function cacheBookmarks (result) {
-            bookmarks = extract(result);
+        // get object with key data - array with bookmarks
+        function cacheBookmarks ({data}) {
+            bookmarks = data;
             return bookmarks;
         }
 
@@ -45,6 +43,13 @@
         function getBookmarkById (id) {
             id = parseInt(id);
             return _.find(bookmarks, {id: id});
+        }
+
+        function createMultipleBookmarks (data) {
+            for (let bookmark of data) {
+                bookmark.id = parseInt(_.uniqueId(10));
+                bookmarks.push(bookmark);
+            }
         }
 
         function createBookmark (bookmark) {

@@ -40,9 +40,6 @@
 
 
     let categoryCreate = {
-        // bindings: {
-        //     onChangeState: '&'
-        // },
         require: {
             parent: '^categoryList' // use parent controller
         },
@@ -52,7 +49,6 @@
             // Initialization - make use of the parent controllers function
             vm.$onInit = function() {
                 vm.parent.onChangeState({$event: {text: 'You are creating a category'}})
-                // console.log(this.parent);
             }
 
 
@@ -91,6 +87,7 @@
                 },
                 preCloseCallback: function () {
                     $state.go('app.category');
+                    // vm.parent.onChangeState({$event: {text: `You changed your mind.`}})
                 }
             })
         }

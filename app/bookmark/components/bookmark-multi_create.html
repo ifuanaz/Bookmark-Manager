@@ -1,5 +1,5 @@
 <h3>Create Bookmark</h3>
-<form class="create-form" ng-submit="ctrlDialog.createBookmark(newBookmark)">
+<form class="create-form" ng-submit="ctrlDialog.createBookmarks({newBookmark, categories})">
     <div class="form-group">
         <label>Bookmark Title</label>
         <input type="text" class="form-control" ng-model="newBookmark.title" placeholder="Enter title" required>
@@ -9,6 +9,16 @@
         <label>Bookmark URL</label>
         <input type="text" class="form-control" ng-model="newBookmark.url" placeholder="Enter URL" required>
     </div>
+
+    <!-- Multi select -->
+    <div class="form-group">
+        <label>Select categories</label>
+        <select class="form-control" multiple ng-model="categories.data">
+            <option ng-repeat="option in ctrlDialog.options" value="{{ option.name }}">{{ option.name }}</option>
+        </select>
+    </div>
+
+
     <button type="submit" class="btn btn-lg button-confirm">Create</button>
     <button type="button" class="btn btn-default btn-lg pull-right" ng-click="ctrlDialog.cancel()">Cancel</button>
 </form>
