@@ -67,11 +67,8 @@
 
                         if(categories) {
                             for (let category of categories.data) {
-                                bookmarks.push({
-                                    title: newBookmark.title,
-                                    url: newBookmark.url,
-                                    category: category
-                                });
+                                let bookmark = Object.assign({}, newBookmark, {category: category})
+                                bookmarks.push(bookmark);
                             }
 
                             BookmarksService.createMultipleBookmarks(bookmarks);
