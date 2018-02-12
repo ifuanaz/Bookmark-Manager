@@ -17,14 +17,27 @@
         <a class="bookmarks__link" href="{{ bookmark.url }}" target="_blank">
             {{ bookmark.title }}
         </a>
-        <button
-        ui-sref="app.bookmark.edit({category: ($ctrl.currentCategoryName) ? $ctrl.currentCategoryName : '', bookmarkId: bookmark.id})"
-        type="button" class="bookmarks__btn">
-            <i class="glyphicon glyphicon-pencil"></i>
-        </button>
-        <button type="button" class="bookmarks__btn" ng-click="$ctrl.deleteBookmark(bookmark)">
-            <i class="glyphicon glyphicon-remove"></i>
-        </button>
+        <div class="btn-group">
+            <button type="button" class="bookmarks__btn" data-toggle="dropdown">
+                <i class="glyphicon glyphicon-option-vertical"></i>
+            </button>
+            <ul class="dropdown-menu pull-right dropdown-bookmarks">
+                <li class="dropdown-bookmarks__item">
+                    <button
+                    ui-sref="app.bookmark.edit({category: ($ctrl.currentCategoryName) ? $ctrl.currentCategoryName : '', bookmarkId: bookmark.id})"
+                    type="button" class="bookmarks__btn">
+                        <span>Edit</span>
+                        <i class="glyphicon glyphicon-pencil"></i>
+                    </button>
+                </li>
+                <li class="dropdown-bookmarks__item">
+                    <button type="button" class="bookmarks__btn" ng-click="$ctrl.deleteBookmark(bookmark)">
+                        <span>Delete</span>
+                        <i class="glyphicon glyphicon-remove"></i>
+                    </button>
+                </li>
+            </ul>
+        </div>
     </div>
 </div>
 

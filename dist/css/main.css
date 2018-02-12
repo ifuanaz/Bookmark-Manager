@@ -106,7 +106,10 @@ body {
     text-decoration: none; }
   .bookmarks__btn {
     padding: 0 10px;
-    display: flex; }
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    box-sizing: border-box; }
     .bookmarks__btn:hover {
       color: #3367d6; }
 
@@ -118,6 +121,13 @@ body {
   outline: none !important; }
   .button-confirm:hover {
     opacity: 0.8; }
+
+.dropdown-bookmarks {
+  min-width: inherit;
+  width: 100px; }
+  .dropdown-bookmarks__item {
+    display: block;
+    margin: 5px 0; }
 
 .state {
   position: fixed;
